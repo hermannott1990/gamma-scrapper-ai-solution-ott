@@ -1,0 +1,11 @@
+node_modules
+.git
+save-page.js
+out/server.js
+out/contact.php
+out/contact-smtp.php.example
+out/README.md
+out/DEPLOYMENT_GUIDE.md
+out/ZUSAMMENFASSUNG.txt
+out/INFO.txt
+out/kontaktanfragen.log
