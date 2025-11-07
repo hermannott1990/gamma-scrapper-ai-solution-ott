@@ -6,6 +6,18 @@
       "destination": "/out/index.html"
     },
     {
+      "source": "/impressum.html",
+      "destination": "/out/impressum.html"
+    },
+    {
+      "source": "/datenschutz.html",
+      "destination": "/out/datenschutz.html"
+    },
+    {
+      "source": "/agb.html",
+      "destination": "/out/agb.html"
+    },
+    {
       "source": "/assets/:path*",
       "destination": "/out/assets/:path*"
     },
