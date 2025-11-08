@@ -114,6 +114,103 @@ img.ProseMirror-separator {
 </footer>
 
 
+
+<script>
+// Button-Funktionalität
+function scrollToContact(prefilledMessage) {
+    const contactForm = document.getElementById('contactForm');
+    const messageField = document.getElementById('nachricht');
+    
+    if (prefilledMessage && messageField) {
+        messageField.value = prefilledMessage;
+    }
+    
+    if (contactForm) {
+        contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => { if (messageField) messageField.focus(); }, 1000);
+    }
+}
+
+function scrollToVideo() {
+    const videoSection = document.querySelector('.video-card-section');
+    if (videoSection) {
+        videoSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+
+// Füge Buttons beim Laden hinzu
+document.addEventListener('DOMContentLoaded', function() {
+    // Hero-Buttons
+    const heroText = document.evaluate(
+        "//div[contains(text(), '✓ Spezialisierung auf LEH')]",
+        document,
+        null,
+        XPathResult.FIRST_ORDERED_NODE_TYPE,
+        null
+    ).singleNodeValue;
+    
+    if (heroText && !document.querySelector('.hero-buttons-injected')) {
+        const heroButtons = document.createElement('div');
+        heroButtons.className = 'hero-buttons hero-buttons-injected';
+        heroButtons.innerHTML = `
+            <button class="hero-button hero-button-primary" onclick="scrollToContact()">Jetzt beraten lassen</button>
+            <button class="hero-button hero-button-secondary" onclick="scrollToVideo()">Beispiele ansehen</button>
+        `;
+        heroText.parentNode.insertBefore(heroButtons, heroText);
+    }
+    
+    // Starter Paket Button
+    const starterText = document.evaluate(
+        "//div[contains(text(), '99') and contains(text(), 'Monat')]",
+        document,
+        null,
+        XPathResult.FIRST_ORDERED_NODE_TYPE,
+        null
+    ).singleNodeValue;
+    
+    if (starterText && !document.querySelector('.price-button-starter-injected')) {
+        const starterBtn = document.createElement('button');
+        starterBtn.className = 'price-button price-button-starter price-button-starter-injected';
+        starterBtn.textContent = 'Starter Paket anfragen';
+        starterBtn.onclick = function() {
+            scrollToContact(`Hallo,\n\nich interessiere mich für das Starter Paket (99€/Monat) für die automatisierte Erstellung von Social Media Reels.\n\nGerne würde ich mehr über Ihre Leistungen erfahren und ein kostenfreies Erstgespräch vereinbaren.\n\nMit freundlichen Grüßen`);
+        };
+        
+        let container = starterText.parentNode;
+        for (let i = 0; i < 5; i++) {
+            container = container.parentNode;
+            if (container.tagName === 'DIV' && container.className.includes('card')) break;
+        }
+        container.appendChild(starterBtn);
+    }
+    
+    // Professional Paket Button
+    const professionalText = document.evaluate(
+        "//div[contains(text(), '149') and contains(text(), 'Monat')]",
+        document,
+        null,
+        XPathResult.FIRST_ORDERED_NODE_TYPE,
+        null
+    ).singleNodeValue;
+    
+    if (professionalText && !document.querySelector('.price-button-professional-injected')) {
+        const professionalBtn = document.createElement('button');
+        professionalBtn.className = 'price-button price-button-professional price-button-professional-injected';
+        professionalBtn.textContent = 'Professional Paket anfragen';
+        professionalBtn.onclick = function() {
+            scrollToContact(`Hallo,\n\nich interessiere mich für das Professional Paket (149€/Monat) für die automatisierte Erstellung von Social Media Reels.\n\nGerne würde ich mehr über Ihre Leistungen erfahren und ein kostenfreies Erstgespräch vereinbaren.\n\nMit freundlichen Grüßen`);
+        };
+        
+        let container = professionalText.parentNode;
+        for (let i = 0; i < 5; i++) {
+            container = container.parentNode;
+            if (container.tagName === 'DIV' && container.className.includes('card')) break;
+        }
+        container.appendChild(professionalBtn);
+    }
+});
+</script>
+
 </body></html>
 <!-- Kontaktformular Section -->
 <style>
