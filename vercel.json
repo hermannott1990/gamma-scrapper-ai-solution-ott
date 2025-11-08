@@ -18,6 +18,14 @@
       "destination": "/out/agb.html"
     },
     {
+      "source": "/enhancements.js",
+      "destination": "/out/enhancements.js"
+    },
+    {
+      "source": "/injector.js",
+      "destination": "/out/injector.js"
+    },
+    {
       "source": "/assets/:path*",
       "destination": "/out/assets/:path*"
     },
