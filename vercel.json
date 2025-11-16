@@ -1,0 +1,56 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/out/index.html"
+    },
+    {
+      "source": "/impressum.html",
+      "destination": "/out/impressum.html"
+    },
+    {
+      "source": "/datenschutz.html",
+      "destination": "/out/datenschutz.html"
+    },
+    {
+      "source": "/agb.html",
+      "destination": "/out/agb.html"
+    },
+    {
+      "source": "/enhancements.js",
+      "destination": "/out/enhancements.js"
+    },
+    {
+      "source": "/injector.js",
+      "destination": "/out/injector.js"
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/out/assets/:path*"
+    },
+    {
+      "source": "/contact.php",
+      "destination": "/api/contact"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type"
+        }
+      ]
+    }
+  ]
+}
